@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Продажба на компютърни части</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function showSection(sectionId) {
+            // Скрива всички секции
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.classList.remove('active'));
+
+            // Показва избраната секция
+            const selectedSection = document.getElementById(sectionId);
+            selectedSection.classList.add('active');
+        }
+
+        // Функция за показване на слайдове
+        let slideIndex = 0;
+        function showSlides() {
+            const slides = document.querySelectorAll('.slide');
+            slides.forEach(slide => slide.style.display = 'none');  // Скриваме всички слайдове
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}  // Ако сме стигнали до края, започваме отново
+            slides[slideIndex - 1].style.display = 'block';  // Показваме текущия слайд
+            setTimeout(showSlides, 3000);  // Променяме слайдовете на всеки 3 секунди
+        }
+    </script>
+</head>
+<body onload="showSlides()">
+    <header>
+        <h1>Продажба на компютърни части</h1>
+        <nav>
+            <ul>
+                <li><a href="#computers" onclick="showSection('computers')">Компютри</a></li>
+                <li><a href="#components" onclick="showSection('components')">Компоненти</a></li>
+                <li><a href="#peripherals" onclick="showSection('peripherals')">Периферия</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="components" class="content-section">
+            <h2>Компоненти</h2>
+            <div class="ad-list">
+                <div class="ad slide">
+                    <img src="cpu.jpg" alt="Процесор Intel Core i5" class="ad-image">
+                    <h3>Процесор Intel Core i5</h3>
+                    <p>6-ядрен процесор с честота 3.5 GHz.</p>
+                    <p><span>Цена:</span> 250 лв.</p>
+                    <p><span>Контакт:</span> Иван Иванов - 0888123456</p>
+                </div>
+                <div class="ad slide">
+                    <img src="ram.jpg" alt="RAM памет 16GB DDR4" class="ad-image">
+                    <h3>RAM памет 16GB DDR4</h3>
+                    <p>Бърза памет за игри и работа.</p>
+                    <p><span>Цена:</span> 120 лв.</p>
+                    <p><span>Контакт:</span> Петър Петров - 0887123456</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="computers" class="content-section active">
+            <h2>Компютри</h2>
+            <div class="ad-list">
+                <div class="ad slide">
+                    <img src="gaming_pc.jpg" alt="Геймърски компютър" class="ad-image">
+                    <h3>Геймърски компютър</h3>
+                    <p>Мощен компютър с RTX 3060 и AMD Ryzen 5.</p>
+                    <p><span>Цена:</span> 1800 лв.</p>
+                    <p><span>Контакт:</span> Мария Маринова - 0889123456</p>
+                </div>
+                <div class="ad slide">
+                    <img src="office_pc.jpg" alt="Офис компютър" class="ad-image">
+                    <h3>Офис компютър</h3>
+                    <p>Компютър с Intel Core i3 за офис работа.</p>
+                    <p><span>Цена:</span> 900 лв.</p>
+                    <p><span>Контакт:</span> Георги Георгиев - 0899123456</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="peripherals" class="content-section">
+            <h2>Периферия</h2>
+            <div class="ad-list">
+                <div class="ad slide">
+                    <img src="mouse.jpg" alt="Мишка Logitech G502" class="ad-image">
+                    <h3>Мишка Logitech G502</h3>
+                    <p>Геймърска мишка с програмируеми бутони.</p>
+                    <p><span>Цена:</span> 100 лв.</p>
+                    <p><span>Контакт:</span> Анастасия Анастасова - 0876123456</p>
+                </div>
+                <div class="ad slide">
+                    <img src="keyboard.jpg" alt="Клавиатура Corsair K95" class="ad-image">
+                    <h3>Клавиатура Corsair K95</h3>
+                    <p>Механична клавиатура с RGB подсветка.</p>
+                    <p><span>Цена:</span> 250 лв.</p>
+                    <p><span>Контакт:</span> Иван Иванов - 0888123456</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
